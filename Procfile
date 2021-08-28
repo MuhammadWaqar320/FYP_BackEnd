@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT FypBackEndProject.wsgi:application
+web: gunicorn FypBackEndProject.wsgi --log-file
