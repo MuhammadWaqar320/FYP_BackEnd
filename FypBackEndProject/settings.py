@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-7(1&kxv%!4@teu#l6k+k_fdfo)$1_0-m94yemh*+g_(u*+(o(f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,10 +79,20 @@ WSGI_APPLICATION = 'FypBackEndProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd8bd1jpmu0gi1s', 
+        'USER': 'rhfudzbsippuhy', 
+        'PASSWORD': '08697ee0102f9d1f32d725075455d218f1197d7c185b31e22bdf49083fe3e97a',
+        'HOST': 'ec2-52-3-130-181.compute-1.amazonaws.com', 
+        'PORT': '5432',
     }
 }
 
@@ -122,7 +133,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+
 CORS_ALLOWED_ORIGINS = [
     'https://pakelectronics.herokuapp.com/',
     'http://pakelectronics.herokuapp.com/',
@@ -132,4 +143,6 @@ CORS_ALLOWED_ORIGINS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 django_heroku.settings(locals())
