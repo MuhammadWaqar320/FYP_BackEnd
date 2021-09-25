@@ -78,23 +78,25 @@ WSGI_APPLICATION = 'FypBackEndProject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+# for local database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd8bd1jpmu0gi1s', 
-        'USER': 'rhfudzbsippuhy', 
-        'PASSWORD': '08697ee0102f9d1f32d725075455d218f1197d7c185b31e22bdf49083fe3e97a',
-        'HOST': 'ec2-52-3-130-181.compute-1.amazonaws.com', 
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# for live server's database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd8bd1jpmu0gi1s', 
+#         'USER': 'rhfudzbsippuhy', 
+#         'PASSWORD': '08697ee0102f9d1f32d725075455d218f1197d7c185b31e22bdf49083fe3e97a',
+#         'HOST': 'ec2-52-3-130-181.compute-1.amazonaws.com', 
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
@@ -136,12 +138,14 @@ USE_TZ = True
 
 CORS_ALLOWED_ORIGINS = [
     # 'http://pakelectronics.herokuapp.com/',
-    # 'https://pakelectronics.herokuapp.com/',
+    'http://localhost:3000',
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+import os
 STATIC_URL = '/static/'
+MEDIA_ROOT= os.path.join(BASE_DIR,'media')
+MEDIA_URL='/media/'
 django_heroku.settings(locals())
