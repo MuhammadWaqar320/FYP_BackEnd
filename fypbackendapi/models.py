@@ -4,7 +4,7 @@ from ckeditor.fields import RichTextField
 from django.db.models.deletion import CASCADE
 # Create your models here.
 class Category(models.Model):
-    category_name=models.CharField(max_length=150)
+    category_name=models.CharField(max_length=350)
     class Meta:
         verbose_name_plural='Categories'
     def __str__(self):

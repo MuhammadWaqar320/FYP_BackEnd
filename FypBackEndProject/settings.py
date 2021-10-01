@@ -77,7 +77,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'FypBackEndProject.wsgi.application'
 
 
-# Database
+# Database 
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 # for local database
 DATABASES = {
