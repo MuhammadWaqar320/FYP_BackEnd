@@ -1,5 +1,6 @@
 from django.contrib.admin.decorators import register
 from django.db import models
+from ckeditor.fields import RichTextField
 from django.db.models.deletion import CASCADE
 # Create your models here.
 class Category(models.Model):
@@ -17,7 +18,7 @@ class SubCategory(models.Model):
 class Product(models.Model):
     product_name=models.CharField(max_length=500)
     product_price=models.FloatField()
-    product_description=models.TextField()
+    product_description=RichTextField()
     product_image=models.ImageField(upload_to='uploads/images',null=False,blank=False)
     product_brand=models.CharField(max_length=500)
     product_color=models.CharField(max_length=50)
