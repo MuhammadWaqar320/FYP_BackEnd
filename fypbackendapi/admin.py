@@ -5,5 +5,7 @@ from .models import Product,Category,SubCategory
 # Register your models here.
 @admin.register(Product,Category,SubCategory)
 class AllModels(admin.ModelAdmin):
-    pass
+    admin.site.index_title="PakElectronics Admin Panel"
+    admin.site.site_header="Well Come To PaKElectronics"
+    
 

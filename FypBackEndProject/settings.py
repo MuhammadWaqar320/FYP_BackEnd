@@ -42,8 +42,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'fypbackendapi',
     'ckeditor',
+   
+    # 'colorfield',
+    #  'admin_interface',
+    
 ]
-
+X_FRAME_OPTIONS='SAMEORIGIN'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
