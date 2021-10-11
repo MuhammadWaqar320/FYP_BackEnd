@@ -28,4 +28,9 @@ class Product(models.Model):
     subCategory=models.ForeignKey(SubCategory,on_delete=CASCADE,default=1)
     def __str__(self):
         return self.product_name
+class Event(models.Model):
+    event_name=models.CharField(max_length=150)
+    event_Finish_Time=models.DateTimeField()
+    def __str__(self):
+        return self.event_name
   
