@@ -16,10 +16,7 @@ import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-import environ
-# Initialise environment variables
-env = environ.Env()
-environ.Env.read_env()
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -87,24 +84,24 @@ WSGI_APPLICATION = 'FypBackEndProject.wsgi.application'
 #  Database 
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 # for local database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-# ------------------------------------------------------------------
-# # for live server's database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd8bd1jpmu0gi1s', 
-        'USER': 'rhfudzbsippuhy', 
-        'PASSWORD': '08697ee0102f9d1f32d725075455d218f1197d7c185b31e22bdf49083fe3e97a',
-        'HOST': 'ec2-52-3-130-181.compute-1.amazonaws.com', 
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# ------------------------------------------------------------------
+# # for live server's database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd8bd1jpmu0gi1s', 
+#         'USER': 'rhfudzbsippuhy', 
+#         'PASSWORD': '08697ee0102f9d1f32d725075455d218f1197d7c185b31e22bdf49083fe3e97a',
+#         'HOST': 'ec2-52-3-130-181.compute-1.amazonaws.com', 
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
