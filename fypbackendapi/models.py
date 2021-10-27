@@ -34,3 +34,14 @@ class Event(models.Model):
     def __str__(self):
         return self.event_name
   
+class Shipper(models.Model):
+    shipper_name=models.CharField(max_length=150)
+    shipper_email=models.EmailField(max_length=100)
+    shipper_image=models.ImageField(upload_to='uploads/images',null=False,blank=False)
+    shipper_phone_no=models.CharField(max_length=20)
+    shipper_address=models.CharField(max_length=200)
+    shipper_Regiter_Date=models.DateField()
+    shipper_verified=models.BooleanField()
+    shipper_detail=RichTextField(null=True)
+    def __str__(self):
+        return self.shipper_name

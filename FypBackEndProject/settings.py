@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'fypbackendapi',
     'ckeditor',
+    'phonenumber_field',
    
     # 'colorfield',
     #  'admin_interface',

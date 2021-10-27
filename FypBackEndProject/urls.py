@@ -16,13 +16,14 @@ Including another URLconf
 
 from django.conf.urls.static import static
 from django.conf import settings
-from fypbackendapi.views import ProductView,EventView
+from fypbackendapi.views import ProductView,EventView,ShipperView
 from rest_framework import routers
 from django.contrib import admin
 from django.urls import path,include
 route=routers.DefaultRouter()
 route.register(r'api/products',ProductView,basename="productview")
 route.register(r'api/events', EventView)
+route.register(r'api/shipper',ShipperView)
 urlpatterns = [
     path('admin/',admin.site.urls),
     path(r'',include(route.urls)),
