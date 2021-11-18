@@ -16,14 +16,14 @@ Including another URLconf
 
 from django.conf.urls.static import static
 from django.conf import settings
-from fypbackendapi.models import Customer
-from fypbackendapi.views import CategoryView, ProductView,EventView,ShipperView,CustomerView,SubCategoryView,SubmittedReviewView
+# from fypbackendapi.models import Customer
+from fypbackendapi.views import CategoryView, ProductView,SpecialOfferView,ShipperView,CustomerView,SubCategoryView,SubmittedReviewView
 from rest_framework import routers
 from django.contrib import admin
 from django.urls import path,include
 route=routers.DefaultRouter()
 route.register(r'api/products',ProductView,basename="productview")
-route.register(r'api/events', EventView)
+route.register(r'api/events', SpecialOfferView)
 route.register(r'api/shipper',ShipperView)
 route.register(r'api/category',CategoryView)
 route.register(r'api/customer',CustomerView)

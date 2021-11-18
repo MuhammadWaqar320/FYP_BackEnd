@@ -1,15 +1,16 @@
 from django.db import models
 from django.db.models import fields
 from rest_framework import serializers
-from .models import Category, Customer, Event, Product,Shipper, SubCategory, SubmittedReview
+
+from .models import Category, Customer, SpecialOffer, Product,Shipper, SubCategory, SubmittedReview
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model=Product
         fields='__all__'
         depth=1
-class EventSerializer(serializers.ModelSerializer):
+class SpecialOfferSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Event
+        model=SpecialOffer
         fields='__all__'
 class ShipperSerializer(serializers.ModelSerializer):
     class Meta:
