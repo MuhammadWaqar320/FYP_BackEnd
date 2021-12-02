@@ -30,6 +30,8 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+CORS_ALLOW_HEADERS = ('content-disposition', 'accept-encoding',
+                      'content-type', 'accept', 'origin', 'authorization')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -142,9 +144,30 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-CORS_ALLOWED_ORIGINS = [
-    # 'https://pakelectronics.herokuapp.com/',
-    'http://localhost:3000',
+# CORS_ALLOWED_ORIGINS = [
+#     # 'https://pakelectronics.herokuapp.com/',
+#     '*',
+# ]
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

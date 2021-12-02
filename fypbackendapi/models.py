@@ -3,7 +3,6 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.db.models.deletion import CASCADE
 # Create your models here.
-
 class Category(models.Model):
     category_name=models.CharField(max_length=350)
     class Meta:
@@ -17,12 +16,13 @@ class SubCategory(models.Model):
     def __str__(self):
         return self.subCategory_name
 class Product(models.Model):
+    product_id=models.AutoField(primary_key=True)
     product_name=models.CharField(max_length=500)
     product_price=models.FloatField()
-    product_description=RichTextField()
+    product_description=RichTextField(blank=True)
     product_brand=models.CharField(max_length=500)
     product_color=models.CharField(max_length=50)
-    product_image=models.ImageField(upload_to='uploads/images',null=False,blank=False)
+    product_image=models.ImageField(upload_to='uploads/images',null=True,blank=True)
     product_companyName=models.CharField(max_length=500)
     product_total_stock=models.IntegerField()
     category=models.ForeignKey(Category,on_delete=CASCADE)
@@ -47,15 +47,13 @@ class Shipper(models.Model):
         return self.shipper_name
 class Customer(models.Model):
     customer_id=models.AutoField(primary_key=True)
-    customer_phone=models.CharField(max_length=20)
-    customer_password=models.CharField(max_length=30)
+    customer_phone=models.CharField(max_length=20,default="")
+    customer_password=models.CharField(max_length=30,default="")
     customer_name=models.CharField(max_length=150)
-    customer_email=models.EmailField(max_length=230)
-    customer_registerDate=models.DateTimeField()
-    customer_image=models.ImageField(upload_to='uploads/images',null=False,blank=False)
+    customer_email=models.EmailField(max_length=230,default="")
     def __str__(self):
         return self.customer_name
-class SubmittedReview(Customer,Product,models.Model):
-    Product_Id=models.ForeignKey(Product,on_delete=CASCADE,default=1,related_name="pro_id")
-    Customer_Id=models.ForeignKey(Customer,on_delete=CASCADE,default=1,related_name="cus_id")
+class SubmittedReview(models.Model):
+    Product_Name=models.CharField(max_length=200,default="")
+    Customer_Name=models.CharField(max_length=300,default="")
     rating=models.FloatField()
