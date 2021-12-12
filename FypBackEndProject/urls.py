@@ -17,7 +17,7 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.conf import settings
 # from fypbackendapi.models import Customer
-from fypbackendapi.views import CategoryView, ProductView,SpecialOfferView,ShipperView,CustomerView,SubCategoryView,SubmittedReviewView
+from fypbackendapi.views import CategoryView, ProductView,SpecialOfferView,ShipperView,CustomerView,SubCategoryView,SubmittedReviewView,ContactUsView
 from rest_framework import routers
 from django.contrib import admin
 from django.urls import path,include
@@ -29,6 +29,7 @@ route.register(r'api/category',CategoryView)
 route.register(r'api/customer',CustomerView)
 route.register(r'api/subcategory',SubCategoryView)
 route.register(r'api/rating',SubmittedReviewView)
+route.register(r'api/contactus',ContactUsView)
 
 urlpatterns = [
     path('admin/',admin.site.urls),

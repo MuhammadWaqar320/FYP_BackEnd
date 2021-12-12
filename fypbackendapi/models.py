@@ -33,7 +33,7 @@ class SpecialOffer(models.Model):
     offer_name=models.CharField(max_length=150)
     offer_Finish_Time=models.DateTimeField()
     def __str__(self):
-        return self.event_name
+        return self.offer_name
 class Shipper(models.Model):
     shipper_name=models.CharField(max_length=150)
     shipper_email=models.EmailField(max_length=100)
@@ -48,7 +48,7 @@ class Shipper(models.Model):
 class Customer(models.Model):
     customer_id=models.AutoField(primary_key=True)
     customer_phone=models.CharField(max_length=20,default="")
-    customer_password=models.CharField(max_length=30,default="")
+    customer_password=models.CharField(max_length=100000000000,default="")
     customer_name=models.CharField(max_length=150)
     customer_email=models.EmailField(max_length=230,default="")
     def __str__(self):
@@ -57,3 +57,15 @@ class SubmittedReview(models.Model):
     Product_Name=models.CharField(max_length=200,default="")
     Customer_Name=models.CharField(max_length=300,default="")
     rating=models.FloatField()
+    def __str__(self):
+        return self.Customer_Name+" rated to "+self.Product_Name
+class ContactUs(models.Model):
+    first_name=models.CharField(max_length=100)
+    last_name=models.CharField(max_length=100)
+    email=models.EmailField()
+    phone_no=models.CharField(max_length=100)
+    message=RichTextField(blank=True)
+    class Meta:
+        verbose_name_plural='Contact Us'
+    def __str__(self):
+        return self.first_name

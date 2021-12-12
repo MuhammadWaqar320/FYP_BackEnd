@@ -1,8 +1,8 @@
 from django.db.models import query
 from django.db.models.query import QuerySet
 from django.shortcuts import render
-from .serializers import CategorySerializer, CustomerSerializer, SpecialOfferSerializer, ProductSerializer, ShipperSerializer, SubCategorySerializer, SubmittedReviewSerializer
-from .models import Category, SpecialOffer, Product, Shipper, SubCategory,Customer,SubmittedReview
+from .serializers import CategorySerializer, CustomerSerializer, SpecialOfferSerializer, ProductSerializer, ContactUsSerializer,ShipperSerializer, SubCategorySerializer, SubmittedReviewSerializer
+from .models import Category, SpecialOffer, Product, Shipper, SubCategory,Customer,SubmittedReview,ContactUs
 from rest_framework import serializers, viewsets
 # Create your views here.
 class ProductView(viewsets.ModelViewSet):
@@ -26,4 +26,7 @@ class CustomerView(viewsets.ModelViewSet):
 class SubmittedReviewView(viewsets.ModelViewSet):
     queryset=SubmittedReview.objects.all()
     serializer_class=SubmittedReviewSerializer
+class ContactUsView(viewsets.ModelViewSet):
+    queryset=ContactUs.objects.all()
+    serializer_class=ContactUsSerializer
     
